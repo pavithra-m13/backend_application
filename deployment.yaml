@@ -13,7 +13,20 @@ spec:
         app: backend
     spec:
       containers:
-      - name: backend
-        image: 23.22.23.213:5000/docker-hosted/backend-app:latest
-        ports:
-        - containerPort: 8080
+        - name: backend
+          image: 23.22.23.213:5000/docker-hosted/backend-app:latest
+          ports:
+            - containerPort: 8080
+          env: # Add environment variables here
+            - name: ENV_VAR_NAME
+              value: "some_value" # Example environment variable
+          resources: # Add resource requests/limits
+            requests:
+              memory: "128Mi"
+              cpu: "500m"
+            limits:
+              memory: "256Mi"
+              cpu: "1000m"
+          imagePullPolicy: Always # Ensures Kubernetes always pulls the latest image
+
+
