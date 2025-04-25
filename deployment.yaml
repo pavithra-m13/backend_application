@@ -27,6 +27,6 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "1000m"
-          imagePullPolicy: Always # Ensures Kubernetes always pulls the latest image
-
+          imagePullSecrets:
+          - name: nexus-registry-secret
 
